@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package     Dadolun_RepeatableWidget
+ * @copyright   Copyright (c) 2021 Dadolun (https://github.com/dadolun95)
+ * @license     Open Source License
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="Dadolun\RepeatableWidget\Block\Widget\NameList" id="repeatable_list_widget">
+        <label>Repeatable List</label>
+        <description>Repeatable List widget</description>
+        <parameters>
+            <parameter name="repeatable_items" xsi:type="block" required="true" visible="true" sort_order="0">
+                <label translate="true">Items</label>
+                <block class="Dadolun\RepeatableWidget\Block\Adminhtml\Widget\RowBuilder"/>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

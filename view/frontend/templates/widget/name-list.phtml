@@ -1,0 +1,13 @@
+<?php
+/**
+ * @package     Dadolun_RepeatableWidget
+ * @copyright   Copyright (c) 2021 Dadolun (https://github.com/dadolun95)
+ * @license     Open Source License
+ */
+/** @var \Dadolun\RepeatableWidget\Block\Widget\NameList $block */
+?>
+<ul>
+    <?php foreach($block->getItems() as $item): ?>
+    <li><?= $item['name']; ?></li>
+    <?php endforeach; ?>
+</ul>

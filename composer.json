@@ -1,0 +1,14 @@
+{
+  "name": "dadolun95/magento2-repeatable-widget",
+  "description": "Example of Magento2 repeatable CMS Widget",
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "autoload": {
+      "files": [
+          "registration.php"
+      ],
+      "psr-4": {
+          "Dadolun\\RepeatableWidget\\": ""
+      }
+  }
+}
