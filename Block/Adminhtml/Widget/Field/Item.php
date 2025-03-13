@@ -4,6 +4,9 @@
  * @copyright   Copyright (c) 2021 Dadolun (https://github.com/dadolun95)
  * @license     Open Source License
  */
+
+declare(strict_types=1);
+
 namespace Dadolun\RepeatableWidget\Block\Adminhtml\Widget\Field;
 
 use Magento\Config\Block\System\Config\Form\Field\FieldArray\AbstractFieldArray;
@@ -20,7 +23,7 @@ class Item extends AbstractFieldArray
     /**
      * Prepare to render block
      */
-    protected function _prepareToRender()
+    protected function _prepareToRender(): void
     {
         $this->addColumn(
             'name',
@@ -40,7 +43,7 @@ class Item extends AbstractFieldArray
      * @param DataObject $row
      * @throws LocalizedException
      */
-    protected function _prepareArrayRow(DataObject $row)
+    protected function _prepareArrayRow(DataObject $row): void
     {
         $options = [];
 
@@ -56,9 +59,8 @@ class Item extends AbstractFieldArray
      * @param $optionValue
      * @return string
      */
-    private function calcOptionHash($optionValue)
+    private function calcOptionHash($optionValue): string
     {
         return sprintf('%u', crc32($optionValue));
     }
-
 }

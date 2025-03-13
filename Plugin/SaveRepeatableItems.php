@@ -4,6 +4,9 @@
  * @copyright   Copyright (c) 2021 Dadolun (https://github.com/dadolun95)
  * @license     Open Source License
  */
+
+declare(strict_types=1);
+
 namespace Dadolun\RepeatableWidget\Plugin;
 
 use Dadolun\RepeatableWidget\Helper\WidgetSerializer;
@@ -14,20 +17,14 @@ use Dadolun\RepeatableWidget\Helper\WidgetSerializer;
  */
 class SaveRepeatableItems
 {
-    /**
-     * @var WidgetSerializer
-     */
-    protected $serializer;
 
     /**
-     * SaveRepeatableItems constructor.
      * @param WidgetSerializer $serializer
      */
     public function __construct(
-        WidgetSerializer $serializer
+        protected WidgetSerializer $serializer,
     )
     {
-        $this->serializer = $serializer;
     }
 
     /**
@@ -42,7 +39,8 @@ class SaveRepeatableItems
         $type,
         $params,
         $asIs
-    ) {
+    ): array
+    {
         foreach ($params as $name => $value) {
             if (strpos($name, 'repeatable_') !== false) {
                 $params[$name] = $this->serializer->serialize($value);

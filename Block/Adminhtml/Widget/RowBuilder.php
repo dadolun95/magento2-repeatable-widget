@@ -4,6 +4,9 @@
  * @copyright   Copyright (c) 2021 Dadolun (https://github.com/dadolun95)
  * @license     Open Source License
  */
+
+declare(strict_types=1);
+
 namespace Dadolun\RepeatableWidget\Block\Adminhtml\Widget;
 
 use Magento\Config\Block\System\Config\Form\Field\FieldArray\AbstractFieldArray;
@@ -21,30 +24,23 @@ class RowBuilder extends AbstractFieldArray
 {
 
     /**
-     * @var WidgetSerializer
-     */
-    protected $serializer;
-
-    /**
-     * RowBuilder constructor.
      * @param Context $context
      * @param WidgetSerializer $serializer
      * @param array $data
      */
     public function __construct(
-        Context $context,
-        WidgetSerializer $serializer,
+        protected Context $context,
+        protected WidgetSerializer $serializer,
         array $data = []
     )
     {
-        $this->serializer = $serializer;
         parent::__construct($context, $data);
     }
 
     /**
      * Prepare to render block
      */
-    protected function _prepareToRender()
+    protected function _prepareToRender(): void
     {
         $this->addColumn(
             'name',
@@ -64,7 +60,7 @@ class RowBuilder extends AbstractFieldArray
      * @param DataObject $row
      * @throws LocalizedException
      */
-    protected function _prepareArrayRow(DataObject $row)
+    protected function _prepareArrayRow(DataObject $row): void
     {
         $options = [];
 
@@ -81,7 +77,7 @@ class RowBuilder extends AbstractFieldArray
      * @return AbstractElement
      * @throws LocalizedException
      */
-    public function prepareElementHtml(AbstractElement $element)
+    public function prepareElementHtml(AbstractElement $element): AbstractElement
     {
         $uniqId = $this->mathRandom->getUniqueHash($element->getId());
 
