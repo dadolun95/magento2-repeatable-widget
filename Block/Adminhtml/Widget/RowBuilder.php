@@ -38,23 +38,6 @@ class RowBuilder extends AbstractFieldArray
     }
 
     /**
-     * Prepare to render block
-     */
-    protected function _prepareToRender(): void
-    {
-        $this->addColumn(
-            'name',
-            [
-                'label' => __('Name'),
-                'id' => 'name',
-                'class' => 'name required-entry',
-            ]
-        );
-        $this->_addAfter = false;
-        $this->_addButtonLabel = __('Add');
-    }
-
-    /**
      * Prepare existing row data object
      *
      * @param DataObject $row
